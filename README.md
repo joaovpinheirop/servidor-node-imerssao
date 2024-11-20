@@ -1,7 +1,3 @@
-Aqui está o seu README atualizado com base na aula de hoje:
-
----
-
 # Projeto Back-End - Imersão Dev Back-End Alura
 
 Este repositório contém o código e os aprendizados da minha participação na **Imersão Dev Back-End** oferecida pela Alura. O projeto é focado em desenvolvimento back-end utilizando **JavaScript** e **Node.js** com o framework **Express**.
@@ -76,7 +72,3 @@ O servidor estará em execução na porta 3000. Acesse a rota de teste em [http:
     |-- package.json        # Configurações do projeto e dependências
     |-- README.md           # Documentação do projeto
 ```
-
----
-
-Esse README reflete os aprendizados e avanços feitos até o momento, incluindo a adição de funcionalidades para manipulação de dados e a introdução ao MongoDB. Se precisar de mais alguma alteração ou detalhes, é só avisar!
