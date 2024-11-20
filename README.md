@@ -1,7 +1,3 @@
-Aqui está o seu README atualizado com base na aula de hoje:
-
----
-
 # Projeto Back-End - Imersão Dev Back-End Alura
 
 Este repositório contém o código e os aprendizados da minha participação na **Imersão Dev Back-End** oferecida pela Alura. O projeto é focado em desenvolvimento back-end utilizando **JavaScript** e **Node.js** com o framework **Express**.
@@ -35,6 +31,16 @@ Este é um projeto básico para a criação de um servidor back-end que responde
 - Implementação de uma rota para acessar um post específico pelo seu ID.
 - Introdução ao **MongoDB**, com a criação de uma conta no **MongoDB Atlas** para hospedar o banco de dados na nuvem.
 
+### **Aula 3 - Conexão com MongoDB e Organização do Projeto**  
+- Configuração da conexão com o **MongoDB Atlas**.  
+- Uso de variáveis de ambiente para proteger informações sensíveis (arquivo `.env`).  
+- Modularização do código com as seguintes camadas:  
+  - **`dbconfig.js`**: Conexão com o banco de dados.  
+  - **`routes/postRoutes.js`**: Gerenciamento das rotas.  
+  - **`controllers/postsController.js`**: Manipulação de requisições e respostas.  
+  - **`models/postsModel.js`**: Interação com o banco de dados, incluindo a função `getTodosPosts`.  
+- Testes da rota `/posts` para retornar dados do MongoDB em formato JSON.  
+
 ## 🛠️ Instalação e Execução
 
 Siga os passos abaixo para rodar o projeto localmente:
@@ -56,7 +62,7 @@ Siga os passos abaixo para rodar o projeto localmente:
 
 4. Inicie o servidor:
    ```bash
-   node server.js
+   node run dev
    ```
 
 O servidor estará em execução na porta 3000. Acesse a rota de teste em [http://localhost:3000/api](http://localhost:3000/api) para verificar a resposta do servidor.
@@ -70,13 +76,17 @@ O servidor estará em execução na porta 3000. Acesse a rota de teste em [http:
 ## 📝 Estrutura do Projeto
 
 ```
-|-- nome-do-repositorio/
-    |-- node_modules/       # Dependências do Node.js
-    |-- app.js              # Arquivo principal do servidor
-    |-- package.json        # Configurações do projeto e dependências
-    |-- README.md           # Documentação do projeto
-```
+📦 nome-do-repositorio
+├── 📂 controllers
+│   └── postsController.js
+├── 📂 models
+│   └── postsModel.js
+├── 📂 routes
+│   └── postRoutes.js
+├── dbconfig.js
+├── .env
+├── package.json
+├── server.js
+└── README.md
 
 ---
-
-Esse README reflete os aprendizados e avanços feitos até o momento, incluindo a adição de funcionalidades para manipulação de dados e a introdução ao MongoDB. Se precisar de mais alguma alteração ou detalhes, é só avisar!

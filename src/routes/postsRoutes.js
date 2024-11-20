@@ -1,11 +1,13 @@
 import express from  'express';
-import listarPosts from '../controllers/postController.js';
+import {listarPosts , Api} from '../controllers/postController.js';
 
- const routes = (app) =>{
+const routes = (app) =>{
   app.use(express.json());
   
-  // ENDPOINT | ROTA (/posts) | Obter lista
+  // Listar todos os posts
   app.get('/posts', listarPosts);
+  // Rota de teste
+  app.get('/api',Api );
 }
 
 export default routes;
