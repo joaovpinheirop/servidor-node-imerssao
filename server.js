@@ -1,4 +1,8 @@
 import express from 'express'; // importar express
+import conectarAoBanco from './src/config/dbConfig.js';
+
+// Se Conectar com o banco 
+const conexao = await conectarAoBanco(process.env.STRING_CONEXAO);
 
 //Lista de Posts
 const posts = [
@@ -24,29 +28,30 @@ const posts = [
   },
 ];
 
+async function getTodosPosts(){
+  const db = conexao.db('imersão-back-end');
+  const colecao = db.collection('posts');
+  return colecao.find().toArray();
+}
+
 const app = express();
-app.use(express.json());
 
 // Servidor local sendo executado na porta 3000.
 app.listen(3000,()=>{
   console.log('servidor escutando...');
 });
 
-// ENDPOINT | ROTA (/posts) | Obter lista
-app.get('/posts',(req, res)=>{
-  res.status(200).json(posts);// converter para json
-});
 
 // Buscar Posts Por Id
 function BuscarPostPorId(id){
   return posts.findIndex((post)=>{
     return post.id === Number(id);
   });
-}
+};
 
 // ENDPOINT | ROTA (/posts) | Obter um objeto por id
 app.get('/posts/:id',(req, res)=>{
-  const index = BuscarPostPorId(req.params.id)
+  const index = BuscarPostPorId(req.params.id);
   res.status(200).json(posts[index]);// converter para json
 });
 
