@@ -1,13 +1,11 @@
 import express from  'express';
+import listarPosts from '../controllers/postController.js';
 
  const routes = (app) =>{
   app.use(express.json());
-
+  
   // ENDPOINT | ROTA (/posts) | Obter lista
-  app.get('/posts', async (req, res)=>{
-  const result = await getTodosPosts();
-  res.status(200).json(result);// converter para json
-});
+  app.get('/posts', listarPosts);
 }
 
 export default routes;
