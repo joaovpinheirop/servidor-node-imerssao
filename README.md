@@ -71,6 +71,7 @@ O servidor estará em execução na porta 3000. Acesse a rota de teste em [http:
 
 - **GET /api**: Retorna uma mensagem de boas-vindas, indicando que o servidor está funcionando corretamente.
 - **GET /posts**: Retorna todos os posts em formato JSON.
+- **GET /posts/:id**: Retorna um post específico pelo seu ID.
 
 ## 📝 Estrutura do Projeto
 
