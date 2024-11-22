@@ -26,7 +26,6 @@ export async function uploadImagem(req, res) {
         imgUrl: req.file.originalname,
         alt: ""
     };
-
     try {
         const postCriado = await criarPost(novoPost);
         const imagemAtualizada = `uploads/${postCriado.insertedId}.png`
