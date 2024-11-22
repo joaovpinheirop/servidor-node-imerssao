@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb';
 import conectarAoBanco from '../config/dbConfig.js';
 
 // Conectar com banco de dados
@@ -14,4 +15,12 @@ export  async function criarPost(novoPost){
   const db = conexao.db('imersão-back-end');
   const colecao = db.collection('posts');
   return colecao.insertOne(novoPost)
+}
+// Atualizar Post
+export  async function atualizarPost(id, post){
+  const db = conexao.db('imersão-back-end');
+  const colecao = db.collection('posts');
+  const objId = ObjectId.createFromHexString(id)
+  
+  return colecao.updateOne({ _id: new ObjectId(objId)},{$set: post})
 }
