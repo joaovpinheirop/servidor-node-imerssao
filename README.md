@@ -45,7 +45,8 @@ Este é um projeto funcional para a criação de um servidor back-end que respon
 - Integração com a **Google Gemini API** para geração automática de descrições.  
 - Publicação do projeto na **Google Cloud Run**, tornando a API acessível globalmente.  
 - Configuração do front-end "insta-like" para consumir a API.  
-- Automação da configuração de serviços com um script `services.sh`.  
+- Automação da configuração de serviços com um script `services.sh`.
+- Observação: Embora a publicação do projeto na Google Cloud tenha enfrentado dificuldades devido à configuração da conta de pagamento, o aprendizado sobre o processo de deploy e integração com o Google Cloud foi valioso e está sendo seguido para resolução.
 
 ---
 
