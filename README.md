@@ -1,18 +1,21 @@
+
 # Projeto Back-End - Imersão Dev Back-End Alura  
 
 Este repositório contém o código e os aprendizados da minha participação na **Imersão Dev Back-End** oferecida pela Alura. O projeto é focado em desenvolvimento back-end utilizando **JavaScript** e **Node.js** com o framework **Express**.  
 
 ## 🔥 Descrição do Projeto  
 
-Este é um projeto básico para a criação de um servidor back-end que responde a requisições HTTP, desenvolvido ao longo da imersão. O objetivo é entender os conceitos fundamentais do back-end, incluindo servidores, requisições, respostas, a construção de APIs e a manipulação de dados, além de explorar funcionalidades como o upload de imagens e a interação com bancos de dados.  
+Este é um projeto funcional para a criação de um servidor back-end que responde a requisições HTTP e manipula dados de forma eficiente. Desenvolvido ao longo da imersão, o projeto abrange conceitos essenciais do back-end, como criação de APIs, upload de imagens, integração com bancos de dados, e publicação na nuvem com Google Cloud.  
 
 ## 🚀 Tecnologias Utilizadas  
 
 - **Node.js**: Para executar JavaScript no lado do servidor.  
-- **Express**: Um framework minimalista para criação de servidores em Node.js.  
-- **MongoDB**: Banco de dados baseado em documentos utilizado para armazenar dados de forma persistente.  
+- **Express**: Framework minimalista para construção de APIs.  
+- **MongoDB**: Banco de dados baseado em documentos para persistência de dados.  
 - **Multer**: Middleware para gerenciar upload de arquivos.  
-- **Postman**: Ferramenta para testes de API.  
+- **Google Cloud Run**: Para publicação e disponibilização do projeto online.  
+- **Postman**: Para testes e validações de APIs.  
+- **Google Gemini API**: Para geração automatizada de descrições utilizando inteligência artificial.  
 
 ---
 
@@ -24,22 +27,25 @@ Este é um projeto básico para a criação de um servidor back-end que responde
 - Configuração de uma rota `/api` que retorna uma mensagem de boas-vindas.  
 
 ### **Aula 2 - Manipulação de Dados e Criando Rotas**  
-- Criação de uma API com rotas para buscar todos os posts e posts por ID.  
+- Criação de rotas para buscar todos os posts e posts por ID.  
 - Introdução ao **MongoDB Atlas** para hospedar o banco de dados na nuvem.  
 
 ### **Aula 3 - Conexão com MongoDB e Organização do Projeto**  
-- Configuração da conexão com o banco de dados.  
-- Modularização do projeto com pastas para rotas, controladores e modelos.  
-- Rota `/posts` conectada ao banco de dados e retornando dados em JSON.  
+- Configuração da conexão com o banco de dados utilizando variáveis de ambiente.  
+- Modularização do código em camadas: rotas, controladores e modelos.  
+- Implementação da rota `/posts`, conectada ao banco de dados e retornando dados em JSON.  
 
 ### **Aula 4 - Enviando Informações e Gerenciando Arquivos**  
-- Introdução aos verbos HTTP: **GET**, **POST**, **PUT** e **DELETE**.  
-- Criação da rota `/posts` para **POST**, permitindo o envio de dados à aplicação.  
-- Manipulação de requisições com `req.body` e tratamento de erros usando `try/catch`.  
-- Implementação da função `criarPost` no modelo, utilizando o método `insertOne` do MongoDB.  
-- Configuração do **multer** para upload de arquivos, salvando imagens em `./uploads`.  
-- Renomeação automática dos arquivos com base no ID gerado pelo banco de dados.  
-- Testes com o **Postman** para validar o envio de dados e imagens ao servidor.  
+- Implementação de rotas com verbos HTTP: **GET**, **POST**, **PUT** e **DELETE**.  
+- Upload de imagens com **Multer**, armazenando-as localmente e renomeando-as com IDs únicos do banco de dados.  
+- Manipulação de requisições com `req.body` e tratamento de erros com `try/catch`.  
+
+### **Aula 5 - Publicação e Integração com IA**  
+- Criação da rota `/upload/:id` para atualizar posts existentes.  
+- Integração com a **Google Gemini API** para geração automática de descrições.  
+- Publicação do projeto na **Google Cloud Run**, tornando a API acessível globalmente.  
+- Configuração do front-end "insta-like" para consumir a API.  
+- Automação da configuração de serviços com um script `services.sh`.  
 
 ---
 
@@ -62,7 +68,7 @@ Siga os passos abaixo para rodar o projeto localmente:
    npm install  
    ```  
 
-4. Configure o arquivo `.env` com suas credenciais do MongoDB Atlas.  
+4. Configure o arquivo `.env` com suas credenciais do MongoDB Atlas e da API Google Gemini.  
 
 5. Inicie o servidor:  
    ```bash  
@@ -77,8 +83,8 @@ O servidor estará em execução na porta 3000.
 
 - **GET /api**: Retorna uma mensagem de boas-vindas.  
 - **GET /posts**: Retorna todos os posts em formato JSON.  
-- **POST /posts**: Permite criar novos posts e enviar imagens.
-- **POST /upload**: Permite armazenar imagens no servidor. 
+- **POST /posts**: Permite criar novos posts com upload de imagens.  
+- **PUT /upload/:id**: Atualiza registros existentes e os vincula ao ID especificado.  
 
 ---
 
@@ -92,11 +98,13 @@ O servidor estará em execução na porta 3000.
 │   └── postsModel.js  
 ├── 📂 routes  
 │   └── postRoutes.js  
+├── 📂 services  
+│   └── geminiService.js  
 ├── 📂 uploads  
 │   └── (imagens enviadas pelos usuários)  
 ├── dbconfig.js  
 ├── .env  
+├── services.sh  
 ├── package.json  
 ├── server.js  
 └── README.md  
-```  
